@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Author table -->
+    <changeSet id="1" author="yourname">
+        <createTable tableName="author">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="date"/>
+            <column name="origin_country" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Book table -->
+    <changeSet id="2" author="yourname">
+        <createTable tableName="book">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Join table: author_book -->
+    <changeSet id="3" author="yourname">
+        <createTable tableName="author_book">
+            <column name="author_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <!-- Add Primary Key Constraint -->
+        <addPrimaryKey
+                tableName="author_book"
+                columnNames="author_id, book_id"
+                constraintName="pk_author_book"/>
+        <!-- Add Foreign Key Constraints -->
+        <addForeignKeyConstraint
+                baseTableName="author_book"
+                baseColumnNames="author_id"
+                constraintName="fk_author"
+                referencedTableName="author"
+                referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseTableName="author_book"
+                baseColumnNames="book_id"
+                constraintName="fk_book"
+                referencedTableName="book"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

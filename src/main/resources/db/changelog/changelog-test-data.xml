@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Insert test data into the author table -->
+    <changeSet id="1" author="yourname">
+        <insert tableName="author">
+            <column name="id" value="1"/>
+            <column name="name" value="J.K. Rowling"/>
+            <column name="birth_date" valueDate="1965-07-31"/>
+            <column name="origin_country" value="United Kingdom"/>
+        </insert>
+        <insert tableName="author">
+            <column name="id" value="2"/>
+            <column name="name" value="George R.R. Martin"/>
+            <column name="birth_date" valueDate="1948-09-20"/>
+            <column name="origin_country" value="United States"/>
+        </insert>
+    </changeSet>
+
+    <!-- Insert test data into the book table -->
+    <changeSet id="2" author="yourname">
+        <insert tableName="book">
+            <column name="id" value="1"/>
+            <column name="title" value="Harry Potter and the Philosopher's Stone"/>
+            <column name="author" value="J.K. Rowling"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="2"/>
+            <column name="title" value="A Game of Thrones"/>
+            <column name="author" value="George R.R. Martin"/>
+        </insert>
+    </changeSet>
+
+    <!-- Insert test data into the author_book table -->
+    <changeSet id="3" author="yourname">
+        <insert tableName="author_book">
+            <column name="author_id" value="1"/>
+            <column name="book_id" value="1"/>
+        </insert>
+        <insert tableName="author_book">
+            <column name="author_id" value="2"/>
+            <column name="book_id" value="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
