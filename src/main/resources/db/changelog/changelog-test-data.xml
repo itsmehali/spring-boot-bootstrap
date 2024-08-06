@@ -12,13 +12,13 @@
             <column name="id" value="1"/>
             <column name="name" value="J.K. Rowling"/>
             <column name="birth_date" valueDate="1965-07-31"/>
-            <column name="origin_country" value="United Kingdom"/>
+            <column name="origin_country" value="USA"/>
         </insert>
         <insert tableName="author">
             <column name="id" value="2"/>
             <column name="name" value="George R.R. Martin"/>
             <column name="birth_date" valueDate="1948-09-20"/>
-            <column name="origin_country" value="United States"/>
+            <column name="origin_country" value="CANADA"/>
         </insert>
     </changeSet>
 
@@ -31,7 +31,17 @@
         </insert>
         <insert tableName="book">
             <column name="id" value="2"/>
+            <column name="title" value="Harry Potter and the Chamber of Secrets"/>
+            <column name="author" value="J.K. Rowling"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="3"/>
             <column name="title" value="A Game of Thrones"/>
+            <column name="author" value="George R.R. Martin"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="4"/>
+            <column name="title" value="A Clash of Kings"/>
             <column name="author" value="George R.R. Martin"/>
         </insert>
     </changeSet>
@@ -43,8 +53,16 @@
             <column name="book_id" value="1"/>
         </insert>
         <insert tableName="author_book">
-            <column name="author_id" value="2"/>
+            <column name="author_id" value="1"/>
             <column name="book_id" value="2"/>
+        </insert>
+        <insert tableName="author_book">
+            <column name="author_id" value="2"/>
+            <column name="book_id" value="3"/>
+        </insert>
+        <insert tableName="author_book">
+            <column name="author_id" value="2"/>
+            <column name="book_id" value="4"/>
         </insert>
     </changeSet>
 
