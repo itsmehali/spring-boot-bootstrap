@@ -53,7 +53,7 @@ public class AuthorService {
     }
 
     public List<AuthorDTO> filterAuthors(String name, LocalDate birthDate, OriginCountry origin_country, Long book_count) {
-        List<AuthorDTO> authorsWithBookCount = authorRepository.findAuthorsWithBookCount(name, birthDate, origin_country, book_count);
+        List<AuthorDTO> authorsWithBookCount = authorRepository.findAuthorsWithBookCount(name, birthDate, origin_country, book_count );
 
         return authorsWithBookCount.stream()
                 .map(author -> new AuthorDTO(

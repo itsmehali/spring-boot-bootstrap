@@ -2,6 +2,7 @@ package com.baeldung.persistence.dto;
 
 import com.baeldung.persistence.model.enums.OriginCountry;
 import java.time.LocalDate;
+import java.util.List;
 
 public class AuthorDTO {
     private Long id;
@@ -10,6 +11,7 @@ public class AuthorDTO {
     private OriginCountry origin_country;
     private long book_count;
 
+    private List<String> title;
     public AuthorDTO() {
     }
 
@@ -59,5 +61,13 @@ public class AuthorDTO {
 
     public void setBookCount(long book_count) {
         this.book_count = book_count;
+    }
+
+    public List<String> getBook_titles() {
+        return title;
+    }
+
+    public void setBook_titles(List<String> title) {
+        this.title = title;
     }
 }
