@@ -1,6 +1,7 @@
 package com.baeldung.web.services;
 
 import com.baeldung.persistence.dto.AuthorDTO;
+import com.baeldung.persistence.dto.BookDTO;
 import com.baeldung.persistence.model.Author;
 import com.baeldung.persistence.repo.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +53,8 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
-    public List<AuthorDTO> filterAuthors(String name, LocalDate birthDate, OriginCountry origin_country, Long book_count) {
-        List<AuthorDTO> authorsWithBookCount = authorRepository.findAuthorsWithBookCount(name, birthDate, origin_country, book_count );
+    public List<AuthorDTO> filterAuthors(String name, LocalDate birthDate, OriginCountry origin_country, Long book_count, List<BookDTO> books) {
+        List<AuthorDTO> authorsWithBookCount = authorRepository.findAuthorsWithBookCount(name, birthDate, origin_country, book_count, books );
 
         return authorsWithBookCount.stream()
                 .map(author -> new AuthorDTO(
@@ -61,7 +62,8 @@ public class AuthorService {
                         author.getName(),
                         author.getBirth_date(),
                         author.getOrigin_country(),
-                        author.getBookCount()
+                        author.getBookCount(),
+                        author.getBooks()
                 ))
                 .collect(Collectors.toList());
     }

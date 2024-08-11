@@ -58,7 +58,8 @@ public class AuthorController {
                 filterRequest.getName(),
                 filterRequest.getBirth_date(),
                 filterRequest.getOrigin_country(),
-                filterRequest.getBookCount()
+                filterRequest.getBookCount(),
+                filterRequest.getBooks()
         );
     }
 }

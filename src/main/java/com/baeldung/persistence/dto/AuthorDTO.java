@@ -10,17 +10,18 @@ public class AuthorDTO {
     private LocalDate birth_date;
     private OriginCountry origin_country;
     private long book_count;
+    private List<BookDTO> books;
 
-    private List<String> title;
     public AuthorDTO() {
     }
 
-    public AuthorDTO(Long id, String name, LocalDate birth_date, OriginCountry origin_country, Long book_count) {
+    public AuthorDTO(Long id, String name, LocalDate birth_date, OriginCountry origin_country, Long book_count, List<BookDTO> books) {
         this.id = id;
         this.name = name;
         this.birth_date = birth_date;
         this.origin_country = origin_country;
         this.book_count = book_count;
+        this.books = books;
     }
 
     public Long getId() {
@@ -63,11 +64,11 @@ public class AuthorDTO {
         this.book_count = book_count;
     }
 
-    public List<String> getBook_titles() {
-        return title;
+    public List<BookDTO> getBooks() {
+        return books;
     }
 
-    public void setBook_titles(List<String> title) {
-        this.title = title;
+    public void setBooks(List<BookDTO> books) {
+        this.books = books;
     }
 }

@@ -9,7 +9,7 @@
     <!-- Author table -->
     <changeSet id="1" author="yourname">
         <createTable tableName="author">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
@@ -25,7 +25,7 @@
     <!-- Book table -->
     <changeSet id="2" author="yourname">
         <createTable tableName="book">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="title" type="varchar(255)">
